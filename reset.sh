@@ -3,7 +3,7 @@ ARGS=$(cat jvmArgs.txt)
 rm -rf world*
 echo "World Deleted"
 # Edit seed in server.properties
-python ./updateProperties.py $1
+python3 ./updateProperties.py $1
 echo "Loaded Seed " $1
 # Start server
 java $ARGS -jar server.jar nogui .
