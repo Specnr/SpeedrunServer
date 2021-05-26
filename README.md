@@ -3,6 +3,13 @@
 This is a 1.16.1 vanilla speedrun-optimized server with scripts used to optimize the resetting process
 with seed-input options for FSG.
 
+## Usage
+
+To use it just run the reset.sh shell script. If you want to run a particular seed (for FSG), pass it
+in as an argument. If no argument is given it will leave the seed blank.
+
+Ex: `./reset.sh 2483313382402348964`
+
 ## Requirements
 
 - Python 3.8
