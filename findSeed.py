@@ -9,7 +9,7 @@ import json
 
 
 def display_seed(verif_data, seed):
-    with open(f"fsg_token.txt", 'w') as tokenFile:
+    with open(f"token.txt", 'w') as tokenFile:
         tokenFile.write("Seed: " + seed + "\n")
         tokenFile.write("Token: " + json.dumps(verif_data) + "\n")
     print(seed)

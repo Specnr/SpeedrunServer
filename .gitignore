@@ -7,4 +7,5 @@ whitelist.json
 ops.json
 banned-ips.json
 banned-players.json
-fsg_token.txt
+token.txt
+server.jar
