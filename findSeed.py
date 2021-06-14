@@ -5,12 +5,13 @@ import json
 from multiprocessing import Process
 import subprocess
 import signal
+import json
 
 
 def display_seed(verif_data, seed):
-    with open(f"fsg_token_{seed}.txt", 'w') as tokenFile:
+    with open(f"fsg_token.txt", 'w') as tokenFile:
         tokenFile.write("Seed: " + seed + "\n")
-        tokenFile.write("Token: " + verif_data + "\n")
+        tokenFile.write("Token: " + json.dumps(verif_data) + "\n")
     print(seed)
 
 
@@ -43,12 +44,12 @@ def start_run():
             if not processes[j].is_alive():
                 for k in range(len(processes)):
                     processes[k].kill()
-                    p = subprocess.Popen(['ps', '-A'])
+                    p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE)
                     out, err = p.communicate()
                     for line in out.splitlines():
                         if b'bh' in line:
                             pid = int(line.split(None, 1)[0])
-                            os.kill(pid, signal.SIGKILL)
+                            os.kill(pid, signal.SIGTERM)
                 return
         i = (i + 1) % num_processes
 
