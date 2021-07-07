@@ -2,6 +2,7 @@ eula.txt
 /logs
 /world*
 /prev_world*
+/past-tokens*
 usercache.json
 whitelist.json
 ops.json

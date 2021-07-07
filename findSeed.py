@@ -2,13 +2,30 @@ import os
 import sys
 import requests
 import json
+from datetime import datetime
 from multiprocessing import Process
 import subprocess
 import signal
 import json
+import socket
+
+old_getaddrinfo = socket.getaddrinfo
+
+
+def new_getaddrinfo(args, *kwargs):
+    resps = old_getaddrinfo(args, *kwargs)
+    return [resp for resp in resps if resp[0] == socket.AF_INET]
+
+
+socket.getaddrinfo = new_getaddrinfo
 
 
 def display_seed(verif_data, seed):
+    if os.path.exists("token.txt"):
+        if not os.path.exists("past-tokens"):
+            os.mkdir("past-tokens")
+        datestr = datetime.now().strftime("%Y%m%d%H%M%S%f")
+        os.rename("token.txt", f"past-tokens/token-{datestr}.txt")
     with open(f"token.txt", 'w') as tokenFile:
         tokenFile.write("Seed: " + seed + "\n")
         tokenFile.write("Token: " + json.dumps(verif_data) + "\n")
