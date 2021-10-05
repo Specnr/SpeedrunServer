@@ -1,2 +1,2 @@
 ARGS=$(cat jvmArgs.txt)
-java $ARGS -jar server.jar nogui .
+java $ARGS -jar fabric-server-launch.jar nogui .

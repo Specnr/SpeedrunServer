@@ -5,4 +5,4 @@ python3 ./updateProperties.py $1
 [ $# -gt 0 ] && echo "Loaded Seed " $1
 rm -rf world*
 # Start server
-java $ARGS -jar server.jar nogui .
+java $ARGS -jar fabric-server-launch.jar nogui .

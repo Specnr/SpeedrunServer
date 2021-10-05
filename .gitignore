@@ -3,6 +3,10 @@ eula.txt
 /world*
 /prev_world*
 /past-tokens*
+/.*
+/config*
+/include*
+/libs*
 usercache.json
 whitelist.json
 ops.json

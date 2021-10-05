@@ -7,4 +7,4 @@ echo "Seed Found"
 python3 ./updateProperties.py $seed
 rm -rf world*
 # Start server
-java $ARGS -jar server.jar nogui .
+java $ARGS -jar fabric-server-launch.jar nogui .
